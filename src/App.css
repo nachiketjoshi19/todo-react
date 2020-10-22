@@ -1,38 +1,169 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+/* .............................scroll-bar............................................ */
+/* width */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+::-webkit-scrollbar {
+  width: 10px;
+  background: linear-gradient(180deg, #f1c01f, #ec552b);
 }
+/* Track */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(230, 1, 1);
+  border-radius: 10px;
 }
+/* Handle */
 
-.App-header {
-  background-color: #282c34;
+::-webkit-scrollbar-thumb {
+  background: #ec4d21;
+  border-radius: 10px;
+}
+/* ....................................................scoll-end...................................... */
+
+body {
+  background-image: linear-gradient(120deg, #f1c01f, #ec552b);
+  color: white;
+  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
+}
+
+header {
+  font-size: 1.5rem;
+}
+
+header,
+form {
+  min-height: 20vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+form input,
+form button {
+  padding: 0.5rem;
+  font-size: 2rem;
+  border: none;
+  background: white;
+  outline: none;
+}
+
+form button {
+  color: #ec552b;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3 ease;
+  border: none;
+}
+
+form button:hover {
+  background: #ec552b;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.todo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.todo-list {
+  min-width: 30%;
+  list-style: none;
+}
+
+.todo {
+  margin: 0.5rem;
+  background: white;
+  color: black;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.todo li {
+  flex: 1;
+}
+
+.trash-btn,
+.complete-btn {
+  background: #ec552b;
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  outline: none;
+}
+
+.complete-btn {
+  background: rgb(73, 204, 73);
+}
+
+.todo-item {
+  padding: 0 0.5rem;
+}
+
+.fa-trash,
+.fa-check {
+  pointer-events: none;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transform: translateY(8rem) rotateZ(20deg);
+  opacity: 0;
+}
+
+select {
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.select {
+  margin: 1rem;
+  position: relative;
+  overflow: hidden;
+  outline: none;
+  border: none;
+}
+
+select {
+  color: #ec552b;
+  width: 10rem;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+select:focus {
+  outline: none;
+}
+
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  background: #ec552b;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.select:hover::after {
+  background: white;
+  color: #ec552b;
 }
