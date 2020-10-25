@@ -36,17 +36,17 @@ function App() {
   //save to local
   const saveLocalTodos = () => {
     if (localStorage.getItem('todos') === null) {
-      localStorage.setItem('todos', JSON.stringify([]));
+      localStorage.setItem('todos', JSON.stringify(todos));
     } else {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   };
 
   const getLocalTodos = () => {
-    let todoLocal = JSON.parse(
-      localStorage.getItem('todos', JSON.stringify(todos))
-    );
-    setTodos(todoLocal);
+    let todoLocal = JSON.parse(localStorage.getItem('todos'));
+    if (todoLocal) {
+      setTodos(todoLocal);
+    }
   };
   return (
     <div className="App">
